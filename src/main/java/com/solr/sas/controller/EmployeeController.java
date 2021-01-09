@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@Data
 @RestController
 class EmployeeController {
 
@@ -38,10 +37,8 @@ class EmployeeController {
     }
 
     // Single item
-
     @GetMapping("/employees/{id}")
     Employee one(@PathVariable Long id) {
-
         return repository.findById(id)
                          .orElseThrow(() -> new EmployeeNotFoundException(id));
     }
